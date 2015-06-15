@@ -1,0 +1,12 @@
+\section{Conclusion and Feature Work}
+\label{sec:conclusion}
+
+In this paper, we presented a property matching independent approach for instance matching. We transformed the problem of instance matching to a classification problem, by designing a novel feature vector of high-level similarity metrics. Suitable learning models were selected according to the feature space. Our experimental results on the datasets of IM@OAEI2010 shown that such a feature vector is reasonable for instance matching, and our approach performed much better than the contest participants. Furthermore, we tried to utilize the information of existing matches in LOD to help match new data sources via a transfer learning algorithm. The experiments also show that such information is really helpful.
+
+In future work, we will try to explore the following issues:
+\begin{itemize}
+\item The information on property matching and the relationships between instances can be taken into consideration in the similarity metrics. It may enrich the features for instance matching.
+\item \textit{Random Forest} and \textit{Adaboost} are similar in the result of classification\cite{breiman2001random}. Cooperation of \textit{Random Forest} and \textit{TrAdaboost} can be explored.
+\item The number of dimensions of the current similarity feature space is too low for machine learning with so many matching instances in LOD. More property matching independent similarity metrics need to be designed to make the best use of the information in the existing matches.
+\item We hope to find a powerful way to automatically choose a helpful source domain for the problem of instance matching.
+\end{itemize} 

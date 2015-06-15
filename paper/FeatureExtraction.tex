@@ -1,0 +1,67 @@
+\section{Feature Extraction}
+\label{sec:extraction}
+
+We extract some property-independent information from each instance and then compute the similarity vectors for instance pairs based on this information. Since the performance of a machine learning algorithm depends a lot on the quality of feature extraction, the work in this section is vital for the next step.
+
+\subsection{Literal Information Extraction}
+\label{sec:literal}
+
+We extract several sets of literal information from each instance. The first is the text information set $l_{label}$, that is the label of an instance. The label is the human-readable name for an instance, such that it can help people to identify the real-world object. So labels are discriminative for instance matching. Next, we extract the remaining text information from the instance. These sets are divided into two parts. One is $l_{property}$ which consists of the text information from properties. The other is the text information from the values. The number of words in a value has a certain meaning. If the value only contains one word, this word can be a specific symbol such as the ISBN for a book. If the number of words is small, these words are likely to be the name of something, e.g. "Palo Alto". If there are a lot of words in the value, they may be a text description. These three kinds of values may play different roles in the problem of instance matching. So we extract them as $l_{single}$, $l_{short}$ and $l_{long}$ respectively.
+
+Besides the large amount of text information, there are also other types of literal information in the instance descriptions. The common ones we used are dates, numbers and links. In contrast to the text information, these types of literal information are more useful for instance matching. If two instances share some dates, numbers or links, they are likely to match. So we additionally extract them as $l_{date}$, $l_{number}$ and $l_{link}$. Note that:
+\begin{itemize}
+\item There are many forms of dates. For convenience, we only extract the year part of each date and the other parts are treated as text.
+\item Some dates and numbers may be included in the texts. We use meticulous string processing to find them.
+\end{itemize}
+
+\subsection{Similarity Metrics}
+\label{sec:metric}
+Different similarity metric functions are used for different types of literal information. As shown in Table \ref{tab:metric}, a 12-dimensional similarity vector is generated for each instance pair.
+\begin{table}[t]
+\caption{Overall Statistics on Extraction Results}
+\label{tab:metric}
+\centering
+\begin{tabular}{c|c|c}
+  \toprule
+  Dimension Num & Metric Function & Combination of Literal Information\\
+  \midrule
+    1 & $\mathrm{IdfSim}$ & $l_{single}$ \\
+    2 & $\mathrm{TopIdfSim}$ & $l_{single}$ \\
+    3 & $\mathrm{IdfSim}$ & $l_{single}\cup l_{short} \cup l_{label}$ \\
+    4 & $\mathrm{TopIdfSim}$ & $l_{single}\cup l_{short} \cup l_{label}$ \\
+    5 & $\mathrm{CosSim}$ & $l_{single}\cup l_{short} \cup l_{label} \cup l_{property} \cup l_{long}$ \\
+    6 & $\mathrm{IdfSim}$ & $l_{single}\cup l_{short} \cup l_{label} \cup l_{property} \cup l_{long}$ \\
+    7 & $\mathrm{TopIdfSim}$ & $l_{single}\cup l_{short} \cup l_{label} \cup l_{property} \cup l_{long}$ \\
+    8 & $\mathrm{EditSim}$ & $l_{label}$ \\
+    9 & $\mathrm{CountSim}$ & $l_{label}$ \\
+    10 & $\mathrm{CountSim}$ & $l_{date}$ \\
+    11 & $\mathrm{CountSim}$ & $l_{number}$ \\
+    12 & $\mathrm{CountSim}$ & $l_{link}$ \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+For the text information, we use three functions, $\mathrm{CosSim}$, $\mathrm{IdfSim}$ and $\mathrm{TopIdfSim}$. $\mathrm{CosSim}$ is a common similarity metric for texts. It computes the $\mathrm{TF}\cdot\mathrm{IDF}$\cite{cohen1998integration} weights for the words from two word sets and then computes their \textit{cosine similarity}. Furthermore, in the particular problem of instance matching, the $\mathrm{IDF}$ weights are more important. Some common words or common words for the domain may appear frequently in the descriptions of many instances. These words with high $\mathrm{TF}$ weights but low $\mathrm{IDF}$ weights do not much help match instances. While if a word only appears once in each data source, the two instances that contain it are likely to match. According to this idea, $\mathrm{IdfSim}$ and $\mathrm{TopIdfSim}$ are designed based on the $\mathrm{IDF}$ weights of words. $\mathrm{IdfSim}$ is similar to $\mathrm{CosSim}$ which just removes the $\mathrm{TF}$ weights. For word sets $T_1$ and $T_2$, $\mathrm{TopIdfSim}$ computes the similarity of $W_1$ and $W_2$, where $W_i$ is a subset of $T_i$ which consists of the words with highest $\mathrm{IDF}$ weights in $T_i$. It is computed by:
+\begin{equation}
+\mathrm{TopIdfSim}(T_1, T_2) = \frac{\sum_{w\in W_1\cap T_2}{}{\mathrm{IDF}(w)} + \sum_{w\in W_2\cap T_1}{}{\mathrm{IDF}(w)}}
+                        {\sum_{w\in W_1}{}{\mathrm{IDF}(w)} + \sum_{w\in W_2}{}{\mathrm{IDF}(w)}}
+\end{equation}
+These three similarity metric functions act on the combinations of the extracted word sets of text information. The combining strategy is based on the relaxed inclusion relation of these word sets from different instances, that is $l_{single}$ may be included in $l_{short}$ or $l_{label}$, and $l_{long}$ main contains all the other word sets.
+
+Among the sets of text information, $l_{label}$ is different from the others in two ways as follows:
+\begin{enumerate}
+    \item We only extract one label for each instance; so it can be treated as a set of words or a string.
+    \item Since each word in a label can be significant for recognizing the entity, to match two instances, the matching words of their labels are more important than the non-matching ones.
+\end{enumerate}
+So we design another two similarity metrics for $l_{label}$, which are $\mathrm{EditSim}$ and $\mathrm{CountSim}$.
+\begin{equation}
+\mathrm{EditSim}(l_{label}^a, l_{label}^b) = 1 - \frac{\mathrm{EditDistance}(S_a, S_b)}{\mathrm{Max}(|S_a|, |S_b|)}
+\end{equation}
+Where $S_a$ stands for the string form of $l_{label}^a$ and $\mathrm{EditDistance}(S_a, S_b)$ is a classical string-distance measure, which represents the minimum number of editing operations needed to make $S_a$ and $S_b$ the same. Each operation can be deleting a character, inserting a character or changing a character in either $S_a$ or $S_b$.
+\begin{equation}
+\mathrm{CountSim}(l_{label}^a, l_{label}^b) = \frac{1 - 2^{-|\{w|w\in l_{label}^a\cap l_{label}^b\}|}}
+                        {1 - 2^{-\lceil (|l_{label}^a|+|l_{label}^b|)/2 \rceil}}
+\end{equation}
+
+The literal information sets of dates, numbers and links also have the second characteristic of the labels. So we use $\mathrm{CountSim}$ on them to generate similarities. Note that two numbers are considered to be the same one if their difference is lower than a threshold.
+

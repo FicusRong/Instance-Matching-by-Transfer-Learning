@@ -1,0 +1,86 @@
+\section{Experiments}
+\label{sec:experiments}
+
+First, we will show the experimental results of our proposed approach without transfer learning. We use the dataset provided by the data interlinking track of IM@OAEI2010 and compare our approach with the participants'. We chose this dataset because many others are not from LOD. Then we will give some comparative experiments to show whether a source domain we chose from LOD is helpful to instance matching via transfer learning.
+
+\subsection{Without Transfer Learning}
+
+The goal of the data interlinking track of IM@OAEI2010 is to find all the \texttt{owl:sameAs} links from four data sources to the ones in LOD. These four data sources are also in LOD; they are:
+\begin{itemize}
+\item Sider\footnote{\url{http://sideeffects.embl.de/}}, about some drugs and their effects.
+\item DrugBank\footnote{\url{http://www.drugbank.ca/}}, about drugs and their chemical, pharmaceutical and pharmacological information.
+\item DiseaSome\footnote{\url{http://http://diseasome.kobic.re.kr/}}, about disorders and genes.
+\item DailyMed\footnote{\url{http://dailymed.nlm.nih.gov/}}, about marketed drugs and chemical structure, mechanism of action, indication, usage, contraindications and adverse reactions for the drugs.
+\end{itemize}
+These data sources are already linked to LOD and the existing links will be treated as the standard answers. The well-known \textit{Recall}, \textit{Precision} and \textit{F-Measure} are used for evaluation.
+
+Two teams, ObjectCoref and RiMOM took part in this track. Their reports of results can be found in \cite{wang2010rimom} and \cite{hu2010objectcoref}. ObjectCoref\cite{hu2011self} uses a self-learning framework to iteratively extend a kernel of matching instances. In each round of iteration, the most discriminative property-value pair is learned from the kernel for the further matching. RiMOM\cite{li2009rimom} is a multi-strategy ontology matching framework. It combines three strategies when facing an instance matching problem.
+\begin{enumerate}
+\item Edit distance between labels of two instances.
+\item Cosine of the $\mathrm{TF}\cdot\mathrm{IDF}$ vectors for the text description of the instances to match.
+\item Cosine of the $\mathrm{TF}\cdot\mathrm{IDF}$ vectors for the text description of the instances related to the ones to match.
+\end{enumerate}
+
+\begin{table}[t]
+\caption{Compare with the Participants of IM@OAEI2010}
+\label{tab:oaei}
+\centering
+\begin{tabular}{c|c|c|c|c}
+  \toprule
+  Data Set & Approach & Recall & Precision & F-Measure  \\
+  \midrule
+    Sider-DrugBank & ObjectCoref & 0.996 & 0.302 & 0.464 \\
+    & RiMOM & 0.342 & 0.961 & 0.504 \\
+%    & Random Forest & 0.852 & 0.882 & 0.866\\
+    & AdaBoost & 0.859 & 0.952 & \textbf{0.903} \\
+  \midrule
+    Sider-DiseaSome & ObjectCoref & 0.668 & 0.837 & 0.743 \\
+    & RiMOM & 0.315 & 0.837 & 0.458 \\
+%    & Random Forest & 0.820 & 0.851 & \textbf{0.835}\\
+    & AdaBoost & 0.726 & 0.875 & \textbf{0.794} \\
+  \midrule
+    Sider-DailyMed & ObjectCoref & 0.999 & 0.548 & 0.708 \\
+    & RiMOM & 0.567 & 0.706 & 0.629 \\
+%    & Random Forest & 0.842 & 0.669 & \textbf{0.746} \\
+    & AdaBoost & 0.672 & 0.805 & \textbf{0.733} \\
+  \midrule
+    Sider-DBpedia & RiMOM & 0.482 & 0.717 & 0.576 \\
+%    & Random Forest & 0.690 & 0.258 & 0.375 \\
+    & AdaBoost & 0.643 & 0.639 & \textbf{0.641} \\
+  \midrule
+    DailyMed-DBpedia & RiMOM & 0.246 & 0.293 & 0.267 \\
+%    & Random Forest & 0.321 & 0.414 & 0.362 \\
+    & AdaBoost & 0.373 & 0.377 & \textbf{0.375} \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+In Table \ref{tab:oaei}, we give the results of matching instances for each data source pair. RiMOM also gave their results on some other data source pairs which are not shown here, since we can not find the dumps of those data sources. For each testing data source pair, we randomly labeled $5\%$ of the similarity vectors as training data (no more than 2000 for these datasets). Obviously, our proposed approach works better than ObjectCoref and RiMOM on these datasets.
+
+For ObjectCoref, the process of learning discriminative property-value pairs depends on the lax matches of properties from different data sources. From the report of ObjectCoref\cite{hu2010objectcoref}, we can see that the matching properties found for these datasets are mainly about names and aliases. By analyzing the data, we find that Sider, DrugBank and DayliMed contain a lot of aliases for each instance, while DiseaSome does not. Furthermore, some non-matching instances have similar aliases. So ObjectCoref got high recall and low precision on Sider-DrugBank and Sider-DailyMed, but low recall and high precision on Sider-DiseaSome. In general, ObjectCoref did not get good performance since the properties of names and aliases do not match well. In contrast, RiMOM is a property matching independent approach. But the similarity metric that combines the three strategies is not accurate enough for instance matching.
+
+%In most cases, \textit{AdaBoost} can improve the performance of the basic learning model, which has met our expectations.
+We noticed that our proposed approach has an enormous advantage on the data set Sider-DrugBank. The probable reason is that we can make use of the names and aliases for instance matching. Our approach eliminates the ill effects of the duplicate names by giving them low $\mathrm{IDF}$ weights.
+
+\subsection{With Transfer Learning}
+
+\begin{table}[t]
+\caption{Transfer GeoNames-DBpedia to LinkedGeoData-DBpedia}
+\label{tab:transfer}
+\centering
+\begin{tabular}{c|c|c|c}
+  \toprule
+    Training Examples & AdaBoost & AdaBoost(Source) & TrAdaboost \\
+  \midrule
+    900\tnote{1} & 0.284 & 0.372 & \textbf{0.378} \\
+    1500 & 0.383 & 0.396 & \textbf{0.432} \\
+    3000 & 0.444 & 0.416& \textbf{0.458} \\
+    6000 & \textbf{0.524} & 0.450 & 0.516 \\
+    15000 & \textbf{0.544} & 0.491 & 0.536 \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
+We choose GeoNames\footnote{\url{http://www.geonames.org/}}, LinkedGeoData\footnote{\url{http://linkedgeodata.org/}} and DBpedia as the datasets for the experiments on transfer learning. GeoNames and LinkedGeoData are data sources in LOD. Both of them are about geographic information and have \texttt{owl:sameAs} links to DBpedia. GeoNames and LinkedGeoData have similar behaviors in describing real-world objects. So the the describing heterogeneities of GeoNames-DBpedia and LinkedGeoData-DBpedia are similar. We try to use the information on the existing matching instances between GeoNames and DBpedia to help matching LinkedGeoData and DBpedia.
+
+The result is shown in Table \ref{tab:transfer}. \textbf{AdaBoost} denotes the \textit{AdaBoost} model applied only on the training data from the target domain (LinkedGeoData-DBpedia). \textbf{AdaBoost(Source)} and \textbf{TrAdaBoost} respectively denote the \textit{AdaBoost} and \textit{TrAdaBoost} model applied on the training data from both domains. \textbf{Training Examples} denotes the number of training instance pairs we labeled in the target domain. 900 examples are about $0.01\%$ of all the pre-matching instance pairs between LinkedGeoData and DBpedia. We can see that the source domain we chose is really helpful via \textit{TrAdaBoost}. But directly using the source domain for training can be harmful. Furthermore, the less training data there is in the target domain, the more the source domain can help. If there is efficient training data in the target domain, the source domain is entirely useless. These experimental results match our intuition about transfer learning.

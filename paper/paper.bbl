@@ -1,0 +1,157 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+
+\bibitem{ananthakrishna2002eliminating}
+Ananthakrishna, R., Chaudhuri, S., Ganti, V.: Eliminating fuzzy duplicates in
+  data warehouses. In: Proceedings of the 28th international conference on Very
+  Large Data Bases. pp. 586--597. VLDB Endowment (2002)
+
+\bibitem{bansal2004correlation}
+Bansal, N., Blum, A., Chawla, S.: Correlation clustering. Machine Learning
+  56(1),  89--113 (2004)
+
+\bibitem{bilenko2003adaptive}
+Bilenko, M., Mooney, R., Cohen, W., Ravikumar, P., Fienberg, S.: Adaptive name
+  matching in information integration. Intelligent Systems, IEEE  18(5),
+  16--23 (2003)
+
+\bibitem{bizer2009linked}
+Bizer, C., Heath, T., Berners-Lee, T.: Linked data-the story so far.
+  International Journal on Semantic Web and Information Systems (IJSWIS)  5(3),
+   1--22 (2009)
+
+\bibitem{breiman2001random}
+Breiman, L.: Random forests. Machine learning  45(1),  5--32 (2001)
+
+\bibitem{cochinwala2001efficient}
+Cochinwala, M., Kurien, V., Lalk, G., Shasha, D.: Efficient data
+  reconciliation. Information Sciences  137(1),  1--15 (2001)
+
+\bibitem{cohen1998integration}
+Cohen, W.: Integration of heterogeneous databases without common domains using
+  queries based on textual similarity. In: ACM SIGMOD Record. vol.~27, pp.
+  201--212. ACM (1998)
+
+\bibitem{dai2007boosting}
+Dai, W., Yang, Q., Xue, G., Yu, Y.: Boosting for transfer learning. In:
+  Proceedings of the 24th international conference on Machine learning. pp.
+  193--200. ACM (2007)
+
+\bibitem{eaton2011selective}
+Eaton, E., desJardins, M., et~al.: Selective transfer between learning tasks
+  using task-based boosting. In: Twenty-Fifth AAAI Conference on Artificial
+  Intelligence (2011)
+
+\bibitem{ell2011labels}
+Ell, B., Vrande{\v{c}}i{\'c}, D., Simperl, E.: Labels in the web of data. The
+  Semantic Web--ISWC 2011 pp. 162--176 (2011)
+
+\bibitem{elmagarmid2007duplicate}
+Elmagarmid, A., Ipeirotis, P., Verykios, V.: Duplicate record detection: A
+  survey. Knowledge and Data Engineering, IEEE Transactions on  19(1),  1--16
+  (2007)
+
+\bibitem{freund1995desicion}
+Freund, Y., Schapire, R.: A desicion-theoretic generalization of on-line
+  learning and an application to boosting. In: Computational learning theory.
+  pp. 23--37. Springer (1995)
+
+\bibitem{guha2004merging}
+Guha, S., Koudas, N., Marathe, A., Srivastava, D.: Merging the results of
+  approximate match operations. In: Proceedings of the Thirtieth international
+  conference on Very large data bases-Volume 30. pp. 636--647. VLDB Endowment
+  (2004)
+
+\bibitem{hogan2007performing}
+Hogan, A., Harth, A., Decker, S.: Performing object consolidation on the
+  semantic web data graph  (2007)
+
+\bibitem{hogan2010some}
+Hogan, A., Polleres, A., Umbrich, J., Zimmermann, A.: Some entities are more
+  equal than others: statistical methods to consolidate linked data. In: 4th
+  International Workshop on New Forms of Reasoning for the Semantic Web:
+  Scalable and Dynamic (NeFoRS2010) (2010)
+
+\bibitem{hu2010objectcoref}
+Hu, W., Chen, J., Cheng, G., Qu, Y.: Objectcoref \& falcon-ao: results for oaei
+  2010. Ontology Matching p. 158 (2010)
+
+\bibitem{hu2011self}
+Hu, W., Chen, J., Qu, Y.: A self-training approach for resolving object
+  coreference on the semantic web. In: Proceedings of the 20th international
+  conference on World wide web. pp. 87--96. ACM (2011)
+
+\bibitem{isele2011efficient}
+Isele, R., Jentzsch, A., Bizer, C.: Efficient multidimensional blocking for
+  link discovery without losing recall (2011)
+
+\bibitem{li2009rimom}
+Li, J., Tang, J., Li, Y., Luo, Q.: Rimom: A dynamic multistrategy ontology
+  alignment framework. Knowledge and Data Engineering, IEEE Transactions on
+  21(8),  1218--1232 (2009)
+
+\bibitem{loh2008classification}
+Loh, W.: Classification and regression tree methods. Encyclopedia of statistics
+  in quality and reliability  (2008)
+
+\bibitem{ngomo2011limes}
+Ngomo, A., Auer, S.: Limes-a time-efficient approach for large-scale link
+  discovery on the web of data. In: Proceedings of IJCAI (2011)
+
+\bibitem{ngomo2011raven}
+Ngomo, A., Lehmann, J., Auer, S., H{\"o}ffner, K.: Raven--active learning of
+  link specifications. Ontology Matching p.~25 (2011)
+
+\bibitem{niu2011zhishi}
+Niu, X., Rong, S., Zhang, Y., Wang, H.: Zhishi. links results for oaei 2011.
+  Ontology Matching p. 220 (2011)
+
+\bibitem{pan2010survey}
+Pan, S., Yang, Q.: A survey on transfer learning. Knowledge and Data
+  Engineering, IEEE Transactions on  22(10),  1345--1359 (2010)
+
+\bibitem{pasula2002identity}
+Pasula, H., Marthi, B., Milch, B., Russell, S., Shpitser, I.: Identity
+  uncertainty and citation matching. In: Proceedings of NIPS 2002 (2002)
+
+\bibitem{rahm2001survey}
+Rahm, E., Bernstein, P.: A survey of approaches to automatic schema matching.
+  the VLDB Journal  10(4),  334--350 (2001)
+
+\bibitem{raimond2008automatic}
+Raimond, Y., Sutton, C., Sandler, M.: Automatic interlinking of music datasets
+  on the semantic web. In: Proceedings of the 1st Workshop about Linked Data on
+  the Web. Citeseer (2008)
+
+\bibitem{sleeman2010computing}
+Sleeman, J., Finin, T.: Computing foaf co-reference relations with rules and
+  machine learning. In: Proceedings of the Third International Workshop on
+  Social Data on the Web (2010)
+
+\bibitem{sleeman2010machine}
+Sleeman, J., Finin, T.: A machine learning approach to linking foaf instances.
+  In: Spring Symposium on Linked Data Meets AI. AAAI (January 2010) (2010)
+
+\bibitem{song2011automatically}
+Song, D., Heflin, J.: Automatically generating data linkages using a
+  domain-independent candidate selection approach. The Semantic Web--ISWC 2011
+  pp. 649--664 (2011)
+
+\bibitem{volz2009discovering}
+Volz, J., Bizer, C., Gaedke, M., Kobilarov, G.: Discovering and maintaining
+  links on the web of data. The Semantic Web-ISWC 2009 pp. 650--665 (2009)
+
+\bibitem{wang2010rimom}
+Wang, Z., Zhang, X., Hou, L., Zhao, Y., Li, J., Qi, Y., Tang, J.: Rimom results
+  for oaei 2010. Ontology Matching  195 (2010)
+
+\bibitem{winkler1999state}
+Winkler, W.: The state of record linkage and current research problems. In:
+  Statistical Research Division, US Census Bureau. Citeseer (1999)
+
+\bibitem{winkler2006overview}
+Winkler, W.: Overview of record linkage and current research directions. In:
+  Bureau of the Census. Citeseer (2006)
+
+\end{thebibliography}
