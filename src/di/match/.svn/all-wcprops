@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/di-oaei2010/!svn/ver/51/src/di/match
+END
+IdfVector.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/di-oaei2010/!svn/ver/34/src/di/match/IdfVector.java
+END
+TradaboostDist.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/di-oaei2010/!svn/ver/51/src/di/match/TradaboostDist.java
+END
+WordCount.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/di-oaei2010/!svn/ver/34/src/di/match/WordCount.java
+END
+C45Error.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/di-oaei2010/!svn/ver/27/src/di/match/C45Error.java
+END
+DisCalc.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/di-oaei2010/!svn/ver/52/src/di/match/DisCalc.java
+END
+Tradaboost.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/di-oaei2010/!svn/ver/52/src/di/match/Tradaboost.java
+END
+C45Tree.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/di-oaei2010/!svn/ver/34/src/di/match/C45Tree.java
+END
+PreMatch.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/di-oaei2010/!svn/ver/51/src/di/match/PreMatch.java
+END
+RandomTree.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/di-oaei2010/!svn/ver/35/src/di/match/RandomTree.java
+END
+RandomForest.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/di-oaei2010/!svn/ver/46/src/di/match/RandomForest.java
+END
+Boosting.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/di-oaei2010/!svn/ver/34/src/di/match/Boosting.java
+END
+StandardOutput.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/di-oaei2010/!svn/ver/50/src/di/match/StandardOutput.java
+END
+IdPreMatch.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/di-oaei2010/!svn/ver/51/src/di/match/IdPreMatch.java
+END
+PruneStdOutput.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/di-oaei2010/!svn/ver/46/src/di/match/PruneStdOutput.java
+END
+TfIdf.java
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/di-oaei2010/!svn/ver/34/src/di/match/TfIdf.java
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/di-oaei2010/!svn/ver/14/src/com/sj/freebase/data/rdf
+END
+ExtDataTransformer.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/di-oaei2010/!svn/ver/2/src/com/sj/freebase/data/rdf/ExtDataTransformer.java
+END
+SkippedAssertionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/di-oaei2010/!svn/ver/2/src/com/sj/freebase/data/rdf/SkippedAssertionException.java
+END
+MalFormedAssertionException.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/di-oaei2010/!svn/ver/2/src/com/sj/freebase/data/rdf/MalFormedAssertionException.java
+END
+FreebaseRdfizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/di-oaei2010/!svn/ver/14/src/com/sj/freebase/data/rdf/FreebaseRdfizer.java
+END

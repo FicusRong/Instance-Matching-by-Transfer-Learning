@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/di-oaei2010/!svn/ver/49/src/di/preprocess
+END
+GetObjectLabel.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/di-oaei2010/!svn/ver/34/src/di/preprocess/GetObjectLabel.java
+END
+MergeBlankNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/di-oaei2010/!svn/ver/19/src/di/preprocess/MergeBlankNode.java
+END
+GetPropertyText.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/di-oaei2010/!svn/ver/18/src/di/preprocess/GetPropertyText.java
+END
+ExtractLabel.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/di-oaei2010/!svn/ver/49/src/di/preprocess/ExtractLabel.java
+END
+TripleToJson.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/di-oaei2010/!svn/ver/52/src/di/preprocess/TripleToJson.java
+END

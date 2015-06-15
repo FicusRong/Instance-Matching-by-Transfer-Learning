@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear
+END
+SolverMCSVM_CS.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/SolverMCSVM_CS.java
+END
+SolverType.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/SolverType.java
+END
+Parameter.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Parameter.java
+END
+Model.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Model.java
+END
+Train.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Train.java
+END
+Linear.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Linear.java
+END
+ArraySorter.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/ArraySorter.java
+END
+Problem.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Problem.java
+END
+Tron.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Tron.java
+END
+Predict.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Predict.java
+END
+Function.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Function.java
+END
+FeatureNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/FeatureNode.java
+END
+Feature.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/Feature.java
+END
+DoubleArrayPointer.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/DoubleArrayPointer.java
+END
+IntArrayPointer.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/IntArrayPointer.java
+END
+L2R_L2_SvcFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/L2R_L2_SvcFunction.java
+END
+InvalidInputDataException.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/InvalidInputDataException.java
+END
+L2R_LrFunction.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/di-oaei2010/!svn/ver/27/src/de/bwaldvogel/liblinear/L2R_LrFunction.java
+END

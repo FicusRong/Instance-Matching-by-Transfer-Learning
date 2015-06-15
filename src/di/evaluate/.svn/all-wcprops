@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/di-oaei2010/!svn/ver/33/src/di/evaluate
+END
+RewriteXmlRef.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/di-oaei2010/!svn/ver/33/src/di/evaluate/RewriteXmlRef.java
+END
+CalcRecall.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/di-oaei2010/!svn/ver/24/src/di/evaluate/CalcRecall.java
+END
+RewriteDBpediaRefFreebase.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/di-oaei2010/!svn/ver/20/src/di/evaluate/RewriteDBpediaRefFreebase.java
+END

@@ -1,0 +1,127 @@
+package di;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.mapreduce.InputSplit;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.TaskAttemptContext;
+import org.apache.hadoop.mapreduce.TaskAttemptID;
+import org.apache.hadoop.mapreduce.TaskID;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.LineRecordReader;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+
+import di.evaluate.CalcRecall;
+import di.evaluate.RewriteDBpediaRefFreebase;
+import di.match.DisCalc;
+import di.match.IdPreMatch;
+import di.match.IdfVector;
+import di.match.PreMatch;
+import di.match.PruneStdOutput;
+import di.match.StandardOutput;
+import di.match.TfIdf;
+import di.match.Tradaboost;
+import di.match.TradaboostDist;
+import di.match.WordCount;
+import di.preprocess.ExtractLabel;
+import di.preprocess.GetObjectLabel;
+import di.preprocess.GetPropertyText;
+import di.preprocess.MergeBlankNode;
+import di.preprocess.TripleToJson;
+import di.test.HadoopTest;
+import di.test.PreMatchTest;
+import di.test.Test;
+import di.tools.Vars;
+
+public class Main {
+	public static int reducerNum = 11;
+	public static String[] q = new String[2];
+	
+	public static void tradaboost() throws IOException, InterruptedException, ClassNotFoundException{
+		int r1 = 0, r0 = 0, w1 = 0, w0 = 0;
+		for (int i=0; i<Vars.randomNum; ++i){
+			int randomSeed = i + Vars.randomFrom;
+			if (Vars.prune(q[0] + "_" + q[1]))
+				new PruneStdOutput().run(q[0], q[1], randomSeed);
+			new Tradaboost().run(q[0], q[1], randomSeed);
+//			new TradaboostDist().run(q[0], q[1], randomSeed);
+			TextInputFormat reader = new TextInputFormat();
+			Job tempJob = new Job(new Configuration());
+			FileInputFormat.addInputPath(tempJob, new Path(Vars.Tradaboost + q[0] + "_" + q[1]));
+			List<InputSplit> inputSplits = reader.getSplits(tempJob);
+			TaskAttemptID tempID = new TaskAttemptID(new TaskID("tempID", 0, true, 1), 0);
+			TaskAttemptContext tempContext = new TaskAttemptContext(tempJob.getConfiguration(), tempID);
+			for (InputSplit split : inputSplits) {
+				LineRecordReader recordReader = (LineRecordReader) reader.createRecordReader(split, tempContext);
+				recordReader.initialize(split, tempContext);
+				recordReader.nextKeyValue();
+				String x[] = recordReader.getCurrentValue().toString().split("[\t]");
+				r1 += Integer.parseInt(x[0]);
+				w1 += Integer.parseInt(x[1]);
+				recordReader.nextKeyValue();
+				x = recordReader.getCurrentValue().toString().split("[\t]");
+				w0 += Integer.parseInt(x[0]);
+				r0 += Integer.parseInt(x[1]);
+			}
+		}
+		System.out.println(r1 + "\t" + w1);
+		System.out.println(r0 + "\t" + w0);
+		System.out.println("Recall: " + 1.*r1/(r1+w1));
+		System.out.println("Precision: " + 1.*r1/(r1+w0));
+	}
+	
+	static public void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException{
+		String[] dbp_fb = new String[2];
+		dbp_fb[0] = Vars.DBP;
+		dbp_fb[1] = Vars.FB;		
+//		new ExtractLabel().run(dbp_fb[0], reducerNum);
+//		new GetObjectLabel().run(dbp_fb[0], reducerNum);
+//		new GetPropertyText().run(dbp_fb[0], reducerNum);
+//		new MergeBlankNode().run(dbp_fb[0], reducerNum);
+//		new TripleToJson().run(dbp_fb[0], reducerNum);
+		
+//		new ExtractLabel().run(dbp_fb[1], reducerNum);
+//		new GetObjectLabel().run(dbp_fb[1], reducerNum);
+//		new GetPropertyText().run(dbp_fb[1], reducerNum);
+//		new MergeBlankNode().run(dbp_fb[1], reducerNum);
+//		new TripleToJson().run(dbp_fb[1], reducerNum);
+		
+//		new WordCount().run(dbp_fb, 10);
+//		new TfIdf().run(dbp_fb, 120);
+//		new PreMatch().run(Vars.DBP, Vars.FB, 120);
+//		new IdPreMatch().run(Vars.DBP, Vars.FB, 1000);
+//		new DisCalc().run(Vars.DBP, Vars.FB, 200);
+//		new StandardOutput().run(Vars.DBP, Vars.FB, 121);
+		
+		q[0] = Vars.SD;
+		q[1] = Vars.DB;	
+
+//		new ExtractLabel().run(q[0], reducerNum);
+//		new GetObjectLabel().run(q[0], reducerNum);
+//		new GetPropertyText().run(q[0], reducerNum);
+//		new MergeBlankNode().run(q[0], reducerNum);
+//		new TripleToJson().run(q[0], reducerNum);
+		
+//		new ExtractLabel().run(q[1], reducerNum);
+//		new GetObjectLabel().run(q[1], reducerNum);
+//		new GetPropertyText().run(q[1], reducerNum);
+//		new MergeBlankNode().run(q[1], reducerNum);
+//		new TripleToJson().run(q[1], reducerNum);
+		
+//		new WordCount().run(q, 10);
+//		new TfIdf().run(q, reducerNum);
+//		new PreMatch().run(q[0], q[1], reducerNum);
+//		new IdPreMatch().run(q[0], q[1], reducerNum);
+		new DisCalc().run(q[0], q[1], reducerNum);
+		new StandardOutput().run(q[0], q[1], reducerNum);
+		tradaboost();
+
+//		new PreMatchTest().run(q[0], q[1], reducerNum);
+//		new CalcRecall().run(q[0], q[1], reducerNum);
+//		new RewriteDBpediaRefFreebase().run(reducerNum);
+//		new HadoopTest().run();
+	}
+}
